@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Install Manager.io v23.5.8.822 dalam Android Phone</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #ffffff;
+            color: #111111;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #ffffff;
+            color: #111111;
+            padding: 45px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 30px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        section {
+            background: #ffffff;
+            margin-bottom: 25px;
+            padding: 25px;
+            border: 1px solid #e5e5e5;
+            border-radius: 8px;
+        }
+
+        h2 {
+            margin-top: 0;
+            color: #111111;
+            border-bottom: 1px solid #e5e5e5;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            margin-top: 25px;
+            color: #111111;
+        }
+
+        .command {
+            position: relative;
+            margin: 15px 0;
+        }
+
+        pre {
+            background: #f1f1f1;
+            color: #111111;
+            padding: 16px;
+            padding-right: 50px;
+            margin: 0;
+            border: 1px solid #dddddd;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-size: 14px;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+
+        code {
+            font-family: Consolas, Monaco, monospace;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            border: none;
+            background: transparent;
+            color: #666666;
+            padding: 5px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .copy-btn:hover {
+            color: #111111;
+        }
+
+        .info {
+            background: #f7f7f7;
+            border-left: 3px solid #999999;
+            padding: 14px;
+            margin: 15px 0;
+        }
+
+        .warning {
+            background: #f7f7f7;
+            border-left: 3px solid #999999;
+            padding: 14px;
+            margin: 15px 0;
+        }
+
+        .download {
+            display: inline-block;
+            background: #111111;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 9px 15px;
+            border-radius: 6px;
+            margin: 10px 0;
+        }
+
+        .download:hover {
+            background: #333333;
+        }
+
+        a {
+            color: #111111;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 24px;
+            }
+
+            section {
+                padding: 18px;
+            }
+
+            pre {
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Install Manager.io v23.5.8.822 dalam Android Phone</h1>
+</header>
+
+<div class="container">
+
+    <!-- 1. INSTALL TERMUX -->
+    <section>
+        <h2>1. Install Termux</h2>
+
+        <p>
+            Install Termux melalui Google Play Store:
+        </p>
+
+        <a
+            class="download"
+            href="https://play.google.com/store/apps/details?id=com.termux&hl=en"
+            target="_blank">
+            Google Play – Termux
+        </a>
+
+        <h3>Update Termux</h3>
+
+        <div class="command">
+            <pre><code>pkg update -y && pkg upgrade -y</code></pre>
+            <button class="copy-btn" onclick="copyCommand(this)">⧉</button>
+        </div>
+
+        <h3>Install keperluan</h3>
+
+        <div class="command">
+            <pre><code>pkg install -y proot-distro wget tar ca-certificates</code></pre>
+            <button class="copy-btn" onclick="copyCommand(this)">⧉</button>
+        </div>
+    </section>
+
+
+    <!-- 2. INSTALL DEBIAN -->
+    <section>
+        <h2>2. Install Debian</h2>
+
+        <h3>Install Debian</h3>
+
+        <div class="command">
+            <pre><code>proot-distro install debian</code></pre>
+            <button class="copy-btn" onclick="copyCommand(this)">⧉</button>
+        </div>
+
+        <h3>Masuk ke Debian</h3>
+
+        <div class="command">
+            <pre><code>proot-distro login debian</code></pre>
+            <button class="copy-btn" onclick="copyCommand(this)">⧉</button>
+        </div>
+
+        <h3>Install dependencies</h3>
+
+        <div class="command">
+            <pre><code>apt update && apt install -y wget tar ca-certificates libicu-dev curl</code></pre>
+            <button class="copy-btn" onclick="copyCommand(this)">⧉</button>
+        </div>
+    </section>
+
+
+    <!-- 3. INSTALL MANAGER -->
+    <section>
+        <h2>3. Install Manager.io Server</h2>
+
+        <p>
+            Versi Manager.io yang digunakan:
+            <strong>23.5.8.822</strong>
+        </p>
+
+        <p>
+            Release rasmi:
+            <a
+                href="https://github.com/Manager-io/Manager/releases/tag/23.5.8.822"
+                target="_blank">
+                Manager.io v23.5.8.822
+            </a>
+        </p>
+
+        <h3>Cipta folder Manager</h3>
+
+        <div class="command">
+            <pre><code>mkdir -p /root/manager && cd /root/manager</code></pre>
+            <button class="copy-btn" onclick="copyCommand(this)">⧉</button>
+        </div>
+
+        <h3>Download Manager Server ARM64</h3>
+
+        <div class="command">
+            <pre><code>wget -O ManagerServer-linux-arm64.tar.gz https://github.com/Manager-io/Manager/releases/download/23.5.8.822/ManagerServer-Linux-arm64.tar.gz</code></pre>
+            <button class="copy-btn" onclick="copyCommand(this)">⧉</button>
+        </div>
+
+        <h3>Extract fail</h3>
+
+        <div class="command">
+            <pre><code>tar -xzf ManagerServer-linux-arm64.tar.gz</code></pre>
+            <button class="copy-btn" onclick="copyCommand(this)">⧉</button>
+        </div>
+
+        <h3>Beri permission</h3>
+
+        <div class="command">
+            <pre><code>chmod +x ManagerServer</code></pre>
+            <button class="copy-btn" onclick="copyCommand(this)">⧉</button>
+        </div>
+
+        <h3>Jalankan Manager.io Server</h3>
+
+        <div class="command">
+            <pre><code>./ManagerServer --urls http://*:8080</code></pre>
+            <button class="copy-btn" onclick="copyCommand(this)">⧉</button>
+        </div>
+
+        <div class="info">
+            <strong>Penting:</strong>
+            Jangan tutup Termux atau Debian ketika Manager.io sedang digunakan.
+        </div>
+
+        <h3>Buka Manager pada Android</h3>
+
+        <div class="command">
+            <pre><code>http://127.0.0.1:8080</code></pre>
+            <button class="copy-btn" onclick="copyCommand(this)">⧉</button>
+        </div>
+    </section>
+
+
+    <!-- 4. SHARE -->
+    <section>
+        <h2>4. Share kepada iPad / Telefon Lain</h2>
+
+        <h3>Hidupkan Mobile Hotspot</h3>
+
+        <p>
+            Hidupkan <strong>Mobile Hotspot</strong> pada Android Phone.
+        </p>
+
+        <p>
+            Sambungkan iPad atau telefon lain kepada hotspot tersebut.
+        </p>
+
+        <h3>Cari IP Address Android</h3>
+
+        <div class="command">
+            <pre><code>ifconfig</code></pre>
+            <button class="copy-btn" onclick="copyCommand(this)">⧉</button>
+        </div>
+
+        <p>
+            Cari bahagian:
+        </p>
+
+        <div class="command">
+            <pre><code>swlan0
+inet 10.xxx.xxx.xxx</code></pre>
+            <button class="copy-btn" onclick="copyCommand(this)">⧉</button>
+        </div>
+
+        <p>
+            Contoh IP:
+        </p>
+
+        <div class="command">
+            <pre><code>10.253.113.26</code></pre>
+            <button class="copy-btn" onclick="copyCommand(this)">⧉</button>
+        </div>
+
+        <h3>Buka pada iPad / Telefon Lain</h3>
+
+        <p>
+            Gunakan IP Android tersebut dan tambah port <strong>8080</strong>.
+        </p>
+
+        <div class="command">
+            <pre><code>http://10.253.113.26:8080</code></pre>
+            <button class="copy-btn" onclick="copyCommand(this)">⧉</button>
+        </div>
+
+        <div class="warning">
+            <strong>Nota:</strong>
+            IP <code>10.253.113.26</code> hanyalah contoh.
+            Gunakan IP yang dipaparkan pada Android Phone anda.
+        </div>
+    </section>
+
+
+    <!-- 5. STOP -->
+    <section>
+        <h2>5. Matikan Manager.io Server</h2>
+
+        <p>
+            Untuk hentikan Manager.io Server:
+        </p>
+
+        <p>
+            Tekan:
+            <strong>Ctrl + C</strong>
+        </p>
+
+        <p>
+            Kemudian keluar dari Debian:
+        </p>
+
+        <div class="command">
+            <pre><code>exit</code></pre>
+            <button class="copy-btn" onclick="copyCommand(this)">⧉</button>
+        </div>
+
+        <p>
+            Selepas itu, Mobile Hotspot boleh dimatikan.
+        </p>
+    </section>
+
+</div>
+
+
+<script>
+function copyCommand(button) {
+    const commandBox = button.parentElement.querySelector("code");
+    const text = commandBox.innerText;
+
+    navigator.clipboard.writeText(text)
+        .then(function () {
+            button.innerText = "✓";
+
+            setTimeout(function () {
+                button.innerText = "⧉";
+            }, 1200);
+        })
+        .catch(function () {
+            alert("Gagal copy. Sila copy command secara manual.");
+        });
+}
+</script>
+
+</body>
+</html>
